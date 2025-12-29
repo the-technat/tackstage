@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: 'yarn'
       - run: corepack enable
       - run: corepack install
       - run: yarn install --immutable
@@ -26,6 +27,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: 'yarn'
       - run: corepack enable
       - run: corepack install
       - run: yarn install --immutable
