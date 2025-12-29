@@ -40,9 +40,9 @@ import { SignalsDisplay } from '@backstage/plugin-signals';
 
 const pocketidProvider = {
   apiRef: pocketidAuthApiRef,
-  id: "pocketid",
-  message: "Sign in with Pocket ID",
-  title: "Pocket ID",
+  id: 'pocketid',
+  message: 'Sign in with Pocket ID',
+  title: 'Pocket ID',
 };
 
 const app = createApp({
@@ -66,7 +66,9 @@ const app = createApp({
   },
   components: {
     // SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
-    SignInPage: props => <SignInPage {...props} auto providers={[pocketidProvider]} />,
+    SignInPage: props => (
+      <SignInPage {...props} auto providers={[pocketidProvider]} />
+    ),
   },
 });
 

@@ -25,7 +25,6 @@ export const pocketidAuthApiRef: ApiRef<
   id: 'auth.pocketid',
 });
 
-
 export const apis: AnyApiFactory[] = [
   createApiFactory({
     api: pocketidAuthApiRef,
@@ -71,4 +70,3 @@ export const apis: AnyApiFactory[] = [
   }),
   ScmAuth.createDefaultApiFactory(),
 ];
-

@@ -14,7 +14,10 @@ import {
   createOAuthProviderFactory,
 } from '@backstage/plugin-auth-node';
 import { oidcAuthenticator } from '@backstage/plugin-auth-backend-module-oidc-provider';
-import { DEFAULT_NAMESPACE, stringifyEntityRef } from '@backstage/catalog-model';
+import {
+  DEFAULT_NAMESPACE,
+  stringifyEntityRef,
+} from '@backstage/catalog-model';
 
 const myAuthProviderModule = createBackendModule({
   // This ID must be exactly "auth" because that's the plugin it targets
