@@ -1,0 +1,46 @@
+# fly.toml app configuration file generated for pocket-id-old-water-2360 on 2025-12-23T16:25:38+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'tackstage'
+primary_region = 'fra'
+
+[build]
+# renovate: datasource=docker depName=ghcr.io/pocket-id/pocket-id versioning=semver
+image = 'ghcr.io/the-technat/tackstage:v1.16.0-distroless'
+
+[deploy]
+strategy = 'rolling'
+
+[env]
+APP_URL = 'https://portal.technat.dev'
+
+[[mounts]]
+source = 'data'
+destination = '/app/data'
+initial_size = '1GB'
+snapshot_retention = 7
+scheduled_snapshots = true
+auto_extend_size_threshold = 90
+auto_extend_size_increment = '1GB'
+auto_extend_size_limit = '5GB'
+
+[http_service]
+internal_port = 1411
+force_https = true
+auto_stop_machines = 'stop'
+auto_start_machines = true
+min_machines_running = 0
+
+[[http_service.checks]]
+interval = '30s'
+timeout = '5s'
+grace_period = '2s'
+method = 'GET'
+path = '/healthz'
+
+[[vm]]
+memory = '512mb'
+cpus = 1
+memory_mb = 512
