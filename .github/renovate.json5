@@ -1,17 +1,4 @@
 {
-  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  extends: [
-    'config:recommended',
-    'schedule:earlyMondays',
-  ],
-  lockFileMaintenance: {
-    enabled: true,
-  },
-  packageRules: [
-    {
-      matchUpdateTypes: ["minor", "patch"],
-      matchCurrentVersion: "!/^0/",
-      automerge: true
-    }
-  ],
+  "extends": ["github>secustor/backstage-renovate-config"]
+  // taken from  https://secustor.dev/blog/backstage_renovate_config/
 }
