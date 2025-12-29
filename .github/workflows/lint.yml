@@ -1,0 +1,33 @@
+name: Lint
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v5
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: corepack install
+      - run: yarn install --immutable
+      - run: yarn lint:all
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v5
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: corepack install
+      - run: yarn install --immutable
+      - run: yarn prettier:check
+  

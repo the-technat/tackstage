@@ -17,6 +17,7 @@ backend:
   database:
     client: pg
     connection:
+      pluginDivisionMode: schema 
       host: ${POSTGRES_HOST}
       port: ${POSTGRES_PORT}
       user: ${POSTGRES_USER}

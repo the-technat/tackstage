@@ -1,0 +1,33 @@
+name: Test
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v5
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: corepack install
+      - run: yarn install --immutable
+      - run: yarn test:all
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v5
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: corepack install
+      - run: yarn install --immutable
+      - run: yarn test:e2e
+  
