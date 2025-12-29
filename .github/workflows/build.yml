@@ -7,6 +7,7 @@ on:
       - package.json
       - tsconfig.json
       - yarn.lock
+      - .github/workflows/build.yml
   pull_request:
     paths:
       - packages
@@ -14,6 +15,7 @@ on:
       - package.json
       - tsconfig.json
       - yarn.lock
+      - .github/workflows/build.yml
 
 env:
   REGISTRY: ghcr.io
