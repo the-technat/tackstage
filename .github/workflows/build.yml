@@ -1,11 +1,27 @@
 name: Build
 on:
   push:
+    paths:
+      - packages
+      - plugins
+      - package.json
+      - tsconfig.json
+      - yarn.lock
   pull_request:
+    paths:
+      - packages
+      - plugins
+      - package.json
+      - tsconfig.json
+      - yarn.lock
 
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   build:
