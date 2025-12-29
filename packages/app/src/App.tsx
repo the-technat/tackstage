@@ -20,7 +20,7 @@ import {
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import { UserSettingsPage } from '@backstage/plugin-user-settings';
-import { apis } from './apis';
+import { apis, pocketidAuthApiRef } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
@@ -37,6 +37,13 @@ import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { NotificationsPage } from '@backstage/plugin-notifications';
 import { SignalsDisplay } from '@backstage/plugin-signals';
+
+const pocketidProvider = {
+  apiRef: pocketidAuthApiRef,
+  id: "pocketid",
+  message: "Sign in with Pocket ID",
+  title: "Pocket ID",
+};
 
 const app = createApp({
   apis,
@@ -58,7 +65,8 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
+    // SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
+    SignInPage: props => <SignInPage {...props} auto providers={[pocketidProvider]} />,
   },
 });
 
