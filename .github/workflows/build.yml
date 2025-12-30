@@ -32,7 +32,7 @@ jobs:
       image_tag: ${{ steps.meta.outputs.tags }} 
     steps:
       - name: Get code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
@@ -75,7 +75,7 @@ jobs:
     environment: prod
     steps:
       - name: Get code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup flyctl
         uses: superfly/flyctl-actions/setup-flyctl@v1
       - name: Deploy Prod app
