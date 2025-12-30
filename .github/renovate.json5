@@ -1,4 +1,5 @@
 {
-  "extends": ["github>secustor/backstage-renovate-config"]
+  "extends": ["github>secustor/backstage-renovate-config"],
+   "dependencyDashboard": true
   // taken from  https://secustor.dev/blog/backstage_renovate_config/
 }
