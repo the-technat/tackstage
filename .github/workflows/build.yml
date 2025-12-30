@@ -79,4 +79,5 @@ jobs:
       - name: Setup flyctl
         uses: superfly/flyctl-actions/setup-flyctl@v1
       - name: Deploy Prod app
-        run: flyctl deploy --remote-only --image ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build.outputs.image_tag }}
+        working-directory: deploy
+        run: flyctl deploy --remote-only --image ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build.outputs.image_tag }} 
