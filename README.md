@@ -34,19 +34,4 @@ backend:
 
 ## Production instance
 
-Deployed on fly.io.
-
-Some references:
-- https://fly.io/docs/launch/continuous-deployment-with-github-actions/
-- https://fly.io/docs/networking/custom-domain/
-- https://fly.io/docs/postgres/getting-started/create-pg-cluster/
-- https://fly.io/docs/postgres/managing/scale-to-zero/
-
-Manual steps:
-- add an org token to github actions secret
-- create a scale-to-zero self-managed postgres cluster (see linked doc)
-- save config for this cluster & tweak
-- create db user for our app
-- launch your app initially: `fly launch --no-deploy`
-- somehow specify the correct image tag in fly.toml
-- trigger fly deploy action whenever there is a new image
+Deployed on fly.io. See the [deploy](./deploy) folder for setup docs.
