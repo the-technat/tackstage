@@ -29,7 +29,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      image_tag: ${{ steps.meta.outputs.tags }} 
+      image_tag: ${{ steps.meta.outputs.tags }}
     steps:
       - name: Get code
         uses: actions/checkout@v6
@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 22
-          cache: 'yarn'
+          cache: "yarn"
       - run: corepack enable
       - run: corepack install
       - run: yarn install --immutable
@@ -58,7 +58,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=sha
-      - name: Build image 
+      - name: Build image
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -67,7 +67,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
   deploy:
     needs: build
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
+    if: false
+    # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
     env:
       FLY_API_TOKEN: ${{ secrets.FLY_ORG_API_TOKEN }}
     runs-on: ubuntu-latest
@@ -80,4 +81,5 @@ jobs:
         uses: superfly/flyctl-actions/setup-flyctl@v1
       - name: Deploy Prod app
         working-directory: deploy
-        run: flyctl deploy --remote-only --image ${{ needs.build.outputs.image_tag }} 
+        run: flyctl deploy --remote-only --image ${{ needs.build.outputs.image_tag }}
+
