@@ -10216,6 +10216,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remix-run/router@npm:1.23.2":
+  version: 1.23.2
+  resolution: "@remix-run/router@npm:1.23.2"
+  checksum: 10c0/7096b7f2086b2cd80c9e06873b71a8317e04858c01edc06a6fed187b660408a90f47c8e120e8af4c369cf1fa6b6a316a66b0917f42b6eb8a566e98b277c50449
+  languageName: node
+  linkType: hard
+
 "@remixicon/react@npm:^4.6.0":
   version: 4.8.0
   resolution: "@remixicon/react@npm:4.8.0"
@@ -27941,7 +27948,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router@npm:6.30.2, react-router@npm:^6.3.0":
+"react-router@npm:6.30.2":
   version: 6.30.2
   resolution: "react-router@npm:6.30.2"
   dependencies:
@@ -27949,6 +27956,17 @@ __metadata:
   peerDependencies:
     react: ">=16.8"
   checksum: 10c0/cff5ea92d248d2230adc46d4e2ed3fbeddfaf1ae2e63411da8b7ea6ddc207d71dbc522c05c492e671e553e2153934f4ab180ac02bd36205b274e097f2cfe6fc4
+  languageName: node
+  linkType: hard
+
+"react-router@npm:^6.3.0":
+  version: 6.30.3
+  resolution: "react-router@npm:6.30.3"
+  dependencies:
+    "@remix-run/router": "npm:1.23.2"
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 10c0/a0a74bf5a933cf0abd47e0eac1d3a505cd66b866e3ee8f20d8016885d3b4361ba3ba72dee026248c6125e631b191ba6ad109184c892281cea6cb747c71bf5940
   languageName: node
   linkType: hard
 
